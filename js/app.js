@@ -171,6 +171,21 @@ restart.addEventListener("click", function () {
     myTimer();
     console.log("reshuffle");
 })
+
+/*Play again the same game */
+document.querySelector(".modalReplay").addEventListener("click", function(){
+    console.log("toggled>>>");
+    
+    restartGame();
+    cardsShuffling();
+    restoreScores();
+    resetStars();
+    clearInterval(startTimer);
+    resetClock();
+    toggleModal();
+    myTimer();
+})
+
 /*starting the timer using setInterval*/
 let seconds, min, hours;
 let stopWatch = document.getElementById("watch");
@@ -242,8 +257,8 @@ function toggleModal(){
 function printModalStatistics(){
     const timeStatistics = document.querySelector(".summary");
     const clockTime = document.querySelector("#watch").innerHTML;
-    timeStatistics.innerHTML = `Time = ${clockTime}.
-    Moves = ${counter}`;
+    timeStatistics.innerHTML = `Time = ${clockTime} : 
+    Moves = ${counter + 1}`;
     console.log(timeStatistics);
     console.log(clockTime);
 }
