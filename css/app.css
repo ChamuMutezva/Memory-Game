@@ -134,13 +134,14 @@ h1 {
 
 .modalHeading {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 1.5rem;
     border-bottom: 2px solid grey;
 }
 
-.modalClose {
+.modalTitle {
+    text-align: center;
     font-weight: bold;
     font-size: 2rem;
 }

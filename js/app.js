@@ -1,12 +1,20 @@
-/*
- * Create a list that holds all of your cards */
-const deckCards = document.querySelector(".deck");
+const deckCards = document.querySelector(".deck"); /* Create a list that holds all of your cards */
 const restart = document.querySelector(".restart");
-let clickedCards = [];
+let clickedCards = []; /*This array carries a maximum of 2 cards for comparison*/
 let remainingStars = 0; /* the remaining stars */
+let seconds, min, hours; /*To be used with the myTimer function */
+let stopWatch = document.getElementById("watch");
+let countUp = 0; /*Variable to count time(seconds, minutes, hours) */
+let moves = document.querySelector(".moves");
+let counter = 0; /*Keeps track of the number of moves made */
+let startCount = false; /*Determines to set the counter in motion */
+let countClicks = 0;
+/*Used to start the setInterval timer. Only if 
+the countClicks === 0 and startCount === true can the setInterval be triggered on */
+let startTimer; /*Variable which calls the setInterval time */
+moves.innerHTML = counter;
 
-/* >>>>>>>>>>>>>--------------------------------------------------->>>> */
-
+/*TODO: calls the function that shuffles the card and appends them */
 function cardsShuffling() {
     const cardsToShuffle = Array.from(document.querySelectorAll(".deck li"));
     const shuffledCards = shuffle(cardsToShuffle);
@@ -17,18 +25,11 @@ function cardsShuffling() {
 
 cardsShuffling();
 
-/* >>>>>>>>>>>>>--------------------------------------------------->>>> */
-let moves = document.querySelector(".moves");
-let counter = 0;
-let startCount = false;
-let countClicks = 0;
-let startTimer;
-moves.innerHTML = counter;
-
+/*TODO: Function to start the stopwatch(setInterval timer) . The result is 
+stored in a variable */
 function startTheTimer() {
     startCount = true;
     if (countClicks === 0 && startCount === true) {
-
         startTimer = setInterval(myTimer, 1000);
     } else {
         startCount = false;
@@ -37,28 +38,24 @@ function startTheTimer() {
 }
 
 deckCards.addEventListener("click", function (event) {
-
     startTheTimer();
-
     const clickTarget = event.target;
     addStars();
-
     if (clickTarget.classList.contains("card") && !clickTarget.classList.contains("match") &&
         clickedCards.length < 2 && !clickedCards.includes(clickTarget)) {
         toggleCards(clickTarget);
         addClickedCards(clickTarget);
-
     }
-
 })
 
 function toggleCards(clickTarget) {
     clickTarget.classList.toggle("open");
     clickTarget.classList.toggle("show");
 }
-/* create an array to temporaly store 2 values and compare them
-if the 2 values are the  same, they remain open otherwise they must
-retain original closed position */
+
+/*TODO: If 2 cards have been clicked call the checkForMatch function
+Increase the number of moves(counter) and print the moves on the screen
+ */
 function addClickedCards(clickTarget) {
     clickedCards.push(clickTarget);
     if (clickedCards.length === 2) {
@@ -66,9 +63,11 @@ function addClickedCards(clickTarget) {
         counter++;
         moves.innerHTML = counter;
     }
-
 }
 
+/*TODO: create an array to temporaly store 2 values and compare them
+if the 2 values are the  same, they remain open otherwise they must
+retain original closed position */
 function checkforMatch() {
     if (clickedCards[0].firstElementChild.className === clickedCards[1].firstElementChild.className) {
         console.log(clickedCards[0].firstElementChild.classList);
@@ -78,11 +77,9 @@ function checkforMatch() {
         console.log("we have a match");
         clickedCards = [];
         endGame();
-
     } else {
         console.log(clickedCards[0].firstElementChild.classList);
         console.log(clickedCards[1].firstElementChild.classList);
-
         console.log("no match");
         setTimeout(function () {
             clickedCards[0].classList.toggle("open");
@@ -90,46 +87,40 @@ function checkforMatch() {
             clickedCards[1].classList.toggle("open");
             clickedCards[1].classList.toggle("show");
             clickedCards = [];
-
         }, 1000);
-
     }
 }
 
-/*dealing with stars */
+/*TODO: dealing with stars, Aim to finish the game with
+a minimum of moves to have 3 stars */
 function addStars() {
     let stars = document.querySelectorAll(".stars li");
-
-    if (counter < 12) {
+    if (counter < 15) {
         stars[0].style.color = "black";
         stars[1].style.color = "black";
         stars[2].style.color = "black";
-    } else if (counter >= 12 && counter < 18) {
+    } else if (counter >= 15 && counter < 22) {
         stars[2].style.color = "white";
 
-    } else if (counter >= 18 && counter < 25) {
+    } else if (counter >= 22 && counter < 28) {
         stars[1].style.color = "white";
     } else {
         stars[0].style.color = "white";
     }
-
 }
 
 /*count the number of stars , to give credit to player */
 function countStars() {
     remainingStars = 0;
     let stars = document.querySelectorAll(".stars li");
-   
     for (star of stars) {
         if (star.style.color === "black") {
             remainingStars++;
-
         }
-        
     }
 }
 
-/* Ending the game */
+/*TODO: Ending the game, */
 function endGame() {
     let classMatch = document.querySelectorAll(".match");
     if (classMatch.length === 16) {
@@ -138,9 +129,7 @@ function endGame() {
         printModalStatistics();
         toggleModal();
     }
-
 }
-
 
 /*Restart the game */
 function restartGame() {
@@ -150,6 +139,7 @@ function restartGame() {
         card.className = "card";
     }
 }
+
 /*Reset clock timer*/
 function resetClock() {
     startCount = false;
@@ -162,19 +152,21 @@ function resetClock() {
     strMin = 00;
     strSeconds = 00;
 }
-/*Reset scores */
+
+/*Reset moves to zero */
 function restoreScores() {
     counter = 0;
     moves.innerHTML = counter;
 }
-/*Reset stars */
+
+/*Reset stars to original state*/
 function resetStars() {
     let stars = document.querySelectorAll(".stars li");
     stars[0].style.color = "black";
     stars[1].style.color = "black";
     stars[2].style.color = "black";
-
 }
+
 /*Restarting the game*/
 restart.addEventListener("click", function () {
     restartGame();
@@ -184,13 +176,11 @@ restart.addEventListener("click", function () {
     clearInterval(startTimer);
     resetClock();
     myTimer();
-    console.log("reshuffle");
 })
 
-/*Play again the same game */
+/*TODO: Play again the same game */
 document.querySelector(".modalReplay").addEventListener("click", function () {
     console.log("toggled>>>");
-
     restartGame();
     cardsShuffling();
     restoreScores();
@@ -201,11 +191,7 @@ document.querySelector(".modalReplay").addEventListener("click", function () {
     myTimer();
 })
 
-/*starting the timer using setInterval*/
-let seconds, min, hours;
-let stopWatch = document.getElementById("watch");
-let countUp = 0;
-
+/*TODO: The function that counts the time taken to play the game */
 function myTimer() {
     if (countUp < 60) {
         seconds = countUp;
@@ -226,19 +212,19 @@ function myTimer() {
         }
     }
     displayTimer();
-    /* stopWatch.innerHTML = hours + ":" + min + ":" + seconds;*/
     countUp++;
-
 }
 
+/*stop the stopwatch timer */
 function stopTheTimer() {
     clearInterval(startTimer);
-
 }
 
+/*Display the time taken */
 function displayTimer() {
     let message = "";
     let strSeconds, strMin, strHours;
+
     if (seconds < 10) {
         strSeconds = `0${seconds}`;
     } else {
@@ -258,18 +244,16 @@ function displayTimer() {
     }
 
     message = `${strHours}:${strMin}:${strSeconds}`
-
-
-
     stopWatch.innerHTML = message;
 }
 
+/*Show the modalBackground*/
 function toggleModal() {
     const modal = document.querySelector(".modalBackground");
     modal.classList.toggle("hide");
 }
 
-
+/*Call this function to print the statistical data to the modal */
 function printModalStatistics() {
     const timeStatistics = document.querySelector(".summary");
     const clockTime = document.querySelector("#watch").innerHTML;
