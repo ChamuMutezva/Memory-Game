@@ -39,8 +39,8 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 560px;
+    min-height: 550px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -53,8 +53,8 @@ h1 {
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    height: 100px;
+    width: 100px;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -87,9 +87,14 @@ h1 {
  */
 
 .score-panel {
+     background: linear-gradient(skyblue, turquoise);
+     border-radius: 10%;
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
 }
 
 .score-panel .stars {
@@ -97,7 +102,6 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px;
-
 }
 
 .score-panel .stars li {
@@ -109,7 +113,6 @@ h1 {
     float: right;
     cursor: pointer;
 }
-
 
 .modalBackground {
     position: absolute;
@@ -129,32 +132,39 @@ h1 {
     transform: translate(-50%, -70%);
 }
 
-
-.modalHeading{
+.modalHeading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem;
     border-bottom: 2px solid grey;
-
 }
 
-.modalClose{
+.modalClose {
     font-weight: bold;
     font-size: 2rem;
 }
 
-
-.modalButtons{
+.modalButtons {
     display: flex;
     justify-content: space-around;
     padding: 1rem;
 }
 
-.modalButton{
+.modalButton {
     width: 60px;
     height: 30px;
 }
-.hide{
+
+.hide {
     display: none;
+}
+
+header {
+    width: 300px;
+    text-align: center;
+    line-height: 4px;
+    border-radius: 10%;
+    margin-top: 15px;
+    background: linear-gradient(turquoise, skyblue);
 }
