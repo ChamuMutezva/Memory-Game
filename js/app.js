@@ -3,7 +3,7 @@
 const deckCards = document.querySelector(".deck");
 const restart = document.querySelector(".restart");
 let clickedCards = [];
-
+let remainingStars = 0; /* the remaining stars */
 
 /* >>>>>>>>>>>>>--------------------------------------------------->>>> */
 
@@ -37,7 +37,7 @@ function startTheTimer() {
 }
 
 deckCards.addEventListener("click", function (event) {
-  
+
     startTheTimer();
 
     const clickTarget = event.target;
@@ -78,7 +78,7 @@ function checkforMatch() {
         console.log("we have a match");
         clickedCards = [];
         endGame();
-      
+
     } else {
         console.log(clickedCards[0].firstElementChild.classList);
         console.log(clickedCards[1].firstElementChild.classList);
@@ -115,15 +115,30 @@ function addStars() {
 
 }
 
+/*count the number of stars , to give credit to player */
+function countStars() {
+    remainingStars = 0;
+    let stars = document.querySelectorAll(".stars li");
+   
+    for (star of stars) {
+        if (star.style.color === "black") {
+            remainingStars++;
+
+        }
+        
+    }
+}
+
 /* Ending the game */
 function endGame() {
     let classMatch = document.querySelectorAll(".match");
     if (classMatch.length === 16) {
+        countStars();
         stopTheTimer();
         printModalStatistics();
-       toggleModal();
+        toggleModal();
     }
-    
+
 }
 
 
@@ -136,16 +151,16 @@ function restartGame() {
     }
 }
 /*Reset clock timer*/
-function resetClock(){
+function resetClock() {
     startCount = false;
     countUp = 0;
-     countClicks = 0;
-     seconds = 0;
-     min = 0;
-     hours = 0;
-     strHours = 00;
-     strMin = 00;
-     strSeconds = 00;
+    countClicks = 0;
+    seconds = 0;
+    min = 0;
+    hours = 0;
+    strHours = 00;
+    strMin = 00;
+    strSeconds = 00;
 }
 /*Reset scores */
 function restoreScores() {
@@ -173,9 +188,9 @@ restart.addEventListener("click", function () {
 })
 
 /*Play again the same game */
-document.querySelector(".modalReplay").addEventListener("click", function(){
+document.querySelector(".modalReplay").addEventListener("click", function () {
     console.log("toggled>>>");
-    
+
     restartGame();
     cardsShuffling();
     restoreScores();
@@ -215,55 +230,56 @@ function myTimer() {
     countUp++;
 
 }
-function stopTheTimer(){
+
+function stopTheTimer() {
     clearInterval(startTimer);
-    
+
 }
 
 function displayTimer() {
     let message = "";
-    let strSeconds , strMin, strHours;
+    let strSeconds, strMin, strHours;
     if (seconds < 10) {
-       strSeconds = `0${seconds}`;       
+        strSeconds = `0${seconds}`;
     } else {
         strSeconds = `${seconds}`;
     }
 
-    if (min < 10){
+    if (min < 10) {
         strMin = `0${min}`;
-    }else {
+    } else {
         strMin = `${min}`;
     }
 
-    if (hours < 10){
+    if (hours < 10) {
         strHours = `0${hours}`;
     } else {
         strHours = `${hours}`;
     }
-    
+
     message = `${strHours}:${strMin}:${strSeconds}`
 
-  
+
 
     stopWatch.innerHTML = message;
 }
 
-function toggleModal(){
+function toggleModal() {
     const modal = document.querySelector(".modalBackground");
     modal.classList.toggle("hide");
 }
 
 
-function printModalStatistics(){
+function printModalStatistics() {
     const timeStatistics = document.querySelector(".summary");
     const clockTime = document.querySelector("#watch").innerHTML;
     timeStatistics.innerHTML = `Time = ${clockTime} : 
-    Moves = ${counter + 1}`;
+    Moves = ${counter + 1} : Stars = ${remainingStars}`;
     console.log(timeStatistics);
     console.log(clockTime);
 }
 
-document.querySelector(".modalCancel").addEventListener("click", function(){
+document.querySelector(".modalCancel").addEventListener("click", function () {
     toggleModal();
 })
 
