@@ -8,8 +8,7 @@ let countUp = 0; /*Variable to count time(seconds, minutes, hours) */
 let moves = document.querySelector(".moves");
 let counter = 0; /*Keeps track of the number of moves made */
 let startCount = false; /*Determines to set the counter in motion */
-let countClicks = 0;
-/*Used to start the setInterval timer. Only if 
+let countClicks = 0; /*Used to start the setInterval timer. Only if 
 the countClicks === 0 and startCount === true can the setInterval be triggered on */
 let startTimer; /*Variable which calls the setInterval time */
 moves.innerHTML = counter;
@@ -40,6 +39,7 @@ function startTheTimer() {
 deckCards.addEventListener("click", function (event) {
     startTheTimer();
     const clickTarget = event.target;
+    console.log(clickTarget);
     addStars();
     if (clickTarget.classList.contains("card") && !clickTarget.classList.contains("match") &&
         clickedCards.length < 2 && !clickedCards.includes(clickTarget)) {
@@ -135,7 +135,7 @@ function endGame() {
 function restartGame() {
     console.log("reshuffling 1");
     const cards = document.querySelectorAll(".deck li");
-    for (card of cards) {
+    for (card of cards) {           
         card.className = "card";
     }
 }
@@ -167,14 +167,16 @@ function resetStars() {
     stars[2].style.color = "black";
 }
 
+
 /*Restarting the game*/
 restart.addEventListener("click", function () {
+    clickedCards = [];
     restartGame();
     cardsShuffling();
     restoreScores();
     resetStars();
     clearInterval(startTimer);
-    resetClock();
+     resetClock();
     myTimer();
 })
 
