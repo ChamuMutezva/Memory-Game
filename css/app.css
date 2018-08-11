@@ -170,16 +170,3 @@ header {
     background: linear-gradient(turquoise, skyblue);
 }
 
-@media screen and (max-width: 360px) {
-   h1{
-       color: green;
-   }
-}
-
-@media screen and (min-width: 361px) and (max-width: 768px) {
-    h1{
-        color: blue;
-    }
-}
-
-@media screen and (min-width: 769px) {}

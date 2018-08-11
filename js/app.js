@@ -95,16 +95,19 @@ function checkforMatch() {
 a minimum of moves to have 3 stars */
 function addStars() {
     let stars = document.querySelectorAll(".stars li");
-    if (counter < 15) {
+    if (counter < 11) {
         stars[0].style.color = "black";
         stars[1].style.color = "black";
         stars[2].style.color = "black";
-    } else if (counter >= 15 && counter < 22) {
-        stars[2].style.color = "white";
+        stars[3].style.color = "black";
+    } else if (counter >= 11 && counter < 16) {
+        stars[3].style.color = "white";
 
-    } else if (counter >= 22 && counter < 28) {
+    } else if (counter >= 16 && counter < 21) {
+        stars[2].style.color = "white";
+    } else if (counter >= 21 && counter < 25){
         stars[1].style.color = "white";
-    } else {
+    } else{
         stars[0].style.color = "white";
     }
 }
@@ -165,6 +168,7 @@ function resetStars() {
     stars[0].style.color = "black";
     stars[1].style.color = "black";
     stars[2].style.color = "black";
+    stars[3].style.color = "black";
 }
 
 
