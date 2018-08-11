@@ -67,7 +67,8 @@ h1 {
 }
 
 .deck .card.open {
-    transform: rotateY(0);
+    transform: rotateY(180deg);
+    transition-duration: 1s;
     background: #02b3e4;
     cursor: default;
 }
@@ -77,9 +78,31 @@ h1 {
 }
 
 .deck .card.match {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 /*
@@ -126,7 +149,7 @@ h1 {
 .modalBody {
     position: relative;
     width: 400px;
-    top: 50%;
+    top: 40%;
     left: 50%;
     background: #bcd6e6;
     transform: translate(-50%, -70%);
@@ -170,3 +193,28 @@ header {
     background: linear-gradient(turquoise, skyblue);
 }
 
+/**=================*/
+
+@keyframes swing {
+    20% {
+        transform: rotate3d(0, 0, 1, 15deg);
+    }
+    40% {
+        transform: rotate3d(0, 0, 1, -10deg);
+    }
+    60% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    to {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.modalBody {
+    transform-origin: top center;
+    animation-name: swing;
+    animation-duration: 3s;
+}
