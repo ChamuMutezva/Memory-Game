@@ -67,7 +67,7 @@ h1 {
 }
 
 .deck .card.open {
-    transform: rotateY(180deg);
+    transform: rotateY(360deg);
     transition-duration: 1s;
     background: #02b3e4;
     cursor: default;
@@ -218,3 +218,4 @@ header {
     animation-name: swing;
     animation-duration: 3s;
 }
+

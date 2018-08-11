@@ -1,19 +1,19 @@
-body{
-    height: 100vw;
-    width: 100vw;
+body {
+    width: 100%;
+    height: 100%;
 }
 .container{
-    width: 90vw;
-    max-height: 100vw;
+    width: 100%;
+    
+    margin: 0 auto;
 }
-ul .deck {
-    height: 90vw;
-    width: 80vw;
+.deck {
+    width: 90%;
 }
 .deck .card{
-    height: 40vw;
-    width: 5;
+    width: 15vw;
+    height: 30vw;
 }
-h1 {
-    color: red;
+.modalBody{
+    width:80%;
 }
