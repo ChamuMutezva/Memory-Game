@@ -9,6 +9,7 @@ body {
 }
 .deck {
     width: 90%;
+    height: 80%;
 }
 .deck .card{
     width: 15vw;

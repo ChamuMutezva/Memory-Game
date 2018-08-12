@@ -1,5 +1,5 @@
-const deckCards = document.querySelector(".deck"); /* Create a list that holds all of your cards */
-const restart = document.querySelector(".restart");
+const deckCards = document.querySelector(".deck"); /* variable that Create a list that holds all of your cards */
+const restart = document.querySelector(".restart");/*refresh or start the game again*/
 let clickedCards = []; /*This array carries a maximum of 2 cards for comparison*/
 let remainingStars = 0; /* the remaining stars */
 let seconds, min, hours; /*To be used with the myTimer function */
