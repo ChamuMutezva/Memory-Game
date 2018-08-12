@@ -22,6 +22,15 @@ body {
     font-family: 'Coda', cursive;
 }
 
+header {
+    width: 300px;
+    text-align: center;
+    line-height: 4px;
+    border-radius: 10%;
+    margin-top: 15px;
+    background: linear-gradient(turquoise, skyblue);
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -137,6 +146,7 @@ h1 {
     cursor: pointer;
 }
 
+/*Styling the modal statistics panel*/
 .modalBackground {
     position: absolute;
     top: 0;
@@ -184,17 +194,6 @@ h1 {
     display: none;
 }
 
-header {
-    width: 300px;
-    text-align: center;
-    line-height: 4px;
-    border-radius: 10%;
-    margin-top: 15px;
-    background: linear-gradient(turquoise, skyblue);
-}
-
-/**=================*/
-
 @keyframes swing {
     20% {
         transform: rotate3d(0, 0, 1, 15deg);
@@ -218,4 +217,8 @@ header {
     animation-name: swing;
     animation-duration: 3s;
 }
-
+footer{
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}

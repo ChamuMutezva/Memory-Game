@@ -2,19 +2,27 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .container{
     width: 100%;
     
     margin: 0 auto;
 }
+
 .deck {
     width: 90%;
     height: 80%;
 }
+
 .deck .card{
     width: 15vw;
     height: 30vw;
 }
+
+header {
+    color: darkviolet;
+}
+
 .modalBody{
     width:80%;
 }
