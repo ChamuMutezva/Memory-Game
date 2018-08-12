@@ -12,9 +12,9 @@ will be displayed.
 4. Repeat steps 1 and 2 until all cards are open. Then the game ends.
 5. A restart button is provided to start the game at anytime.
 6. At the end of the game a replay button is also provided to continue playing or cancel if the need arises.
-#Installation
+# Installation
 Download the zip folder from [Github](https://chamumutezva.github.io/Memory-Game/)
-#Contributions
+# Contributions
 The main `code` was provided by Udacity as a course work.
 Please you are free to email on (ckmutezva@gmail.com)
 
