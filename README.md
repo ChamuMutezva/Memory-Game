@@ -5,6 +5,9 @@ or else they return back to their original state. The game ends when all
 cards are flipped open.
 At the end of the game , information on time taken , moves and stars accumulated 
 will be displayed.
+# About the author
+Chamunorwa Mutezva also known as Chamu Mutezva is a student at Udacity for 
+the Front-End Web Developer Nanodegree program.
 # How to play the game.
 1. Click on a card and a picture will appear.
 2. Click on another different card and it will open.
