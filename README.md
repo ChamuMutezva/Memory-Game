@@ -17,12 +17,13 @@ the Front-End Web Developer Nanodegree program.
 6. At the end of the game a replay button is also provided to continue playing or cancel if the need arises.
 # Installation
 Download the zip folder from [Github](https://chamumutezva.github.io/Memory-Game/)
-# Contributions
-The main `code` was provided by Udacity as a course work.
-Please you are free to email on (ckmutezva@gmail.com)
 # Dependencies
 1. [Font-Awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
 2. [Google-Fonts](https://fonts.googleapis.com/css?family=Coda)
+# Contributions
+The main `code` was provided by Udacity as a course work.
+Please you are free to email on (ckmutezva@gmail.com)
+
 I was inspired by Udacity to do the project as part of my course work.
 Follow the link to play the game.
 https://chamumutezva.github.io/Memory-Game/
