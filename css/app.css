@@ -36,6 +36,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: dimgray;
 }
 
 h1 {
@@ -156,15 +157,6 @@ h1 {
     background: rgba(23, 5, 29, 0.5);
 }
 
-.modalBody {
-    position: relative;
-    width: 400px;
-    top: 40%;
-    left: 50%;
-    background: #bcd6e6;
-    transform: translate(-50%, -70%);
-}
-
 .modalHeading {
     display: flex;
     justify-content: space-around;
@@ -194,6 +186,18 @@ h1 {
     display: none;
 }
 
+.modalBody {
+    position: relative;
+    width: 400px;
+    top: 40%;
+    left: 50%;
+    background: #bcd6e6;
+    transform: translate(-50%, -70%);
+    transform-origin: top center;
+    animation-name: swing;
+    animation-duration: 3s;
+}
+
 @keyframes swing {
     20% {
         transform: rotate3d(0, 0, 1, 15deg);
@@ -212,11 +216,6 @@ h1 {
     }
 }
 
-.modalBody {
-    transform-origin: top center;
-    animation-name: swing;
-    animation-duration: 3s;
-}
 footer{
     text-align: center;
     font-size: 1.5em;

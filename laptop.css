@@ -5,6 +5,7 @@ body {
 
 .container {
     width: 100%;
+    background-color: lightslategray;
     margin: 0 auto;
 }
 

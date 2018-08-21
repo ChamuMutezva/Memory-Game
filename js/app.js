@@ -70,7 +70,7 @@ if the 2 values are the  same, they remain open otherwise they must
 retain original closed position */
 function checkforMatch() {
     if (clickedCards[0].firstElementChild.className === clickedCards[1].firstElementChild.className) {
-        console.log(clickedCards[0].firstElementChild.classList);
+        console.log(clickedCards[0].firstElementChild);
         console.log(clickedCards[1].firstElementChild.classList);
         clickedCards[0].classList.toggle("match");
         clickedCards[1].classList.toggle("match");
@@ -263,8 +263,9 @@ function toggleModal() {
 function printModalStatistics() {
     const timeStatistics = document.querySelector(".summary");
     const clockTime = document.querySelector("#watch").innerHTML;
-    timeStatistics.innerHTML = `Time = ${clockTime} : 
-    Moves = ${counter + 1} : Stars = ${remainingStars}`;
+    timeStatistics.innerHTML = `Time = ${clockTime} .
+    Moves = ${counter + 1} .
+     Stars = ${remainingStars}`;
     console.log(timeStatistics);
     console.log(clockTime);
 }
