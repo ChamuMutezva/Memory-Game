@@ -3,9 +3,8 @@ body {
     height: 100%;
 }
 
-.container{
+.container {
     width: 100%;
-    background-color: grey;
     margin: 0 auto;
 }
 
@@ -14,7 +13,7 @@ body {
     height: 80%;
 }
 
-.deck .card{
+.deck .card {
     width: 15vw;
     height: 30vw;
 }
@@ -23,6 +22,6 @@ header {
     color: darkviolet;
 }
 
-.modalBody{
-    width:80%;
+.modalBody {
+    width: 80%;
 }
