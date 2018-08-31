@@ -216,6 +216,9 @@ h1 {
     }
 }
 
+.modalBackground .modalBody .summary{
+    text-align: center;
+}
 footer{
     text-align: center;
     font-size: 1.5em;
