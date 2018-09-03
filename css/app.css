@@ -219,8 +219,31 @@ h1 {
 .modalBackground .modalBody .summary{
     text-align: center;
 }
+
+
+
 footer{
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 10px;
+}
+
+.congradulations {
+    font-size: 50px;
+    text-align: center;
+    color: goldenrod;
+    animation-name: rotateTrophy;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotateTrophy {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
